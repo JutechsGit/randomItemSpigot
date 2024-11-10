@@ -1,0 +1,8 @@
+name: randomItemSpigot
+version: '1.0'
+main: de.jutechs.randomItemSpigot.Main
+api-version: '1.21'
+commands:
+  redeem:
+    description: Redeems a voucher for a random item.
+    usage: /redeem
