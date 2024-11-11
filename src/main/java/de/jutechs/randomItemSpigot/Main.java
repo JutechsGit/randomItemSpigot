@@ -43,6 +43,7 @@ public class Main extends JavaPlugin {
 
     private void setupBlacklistedItems() {
         BLACKLISTED_ITEMS.add(Material.BARRIER);
+        BLACKLISTED_ITEMS.add(Material.BEDROCK);
         BLACKLISTED_ITEMS.add(Material.COMMAND_BLOCK);
         BLACKLISTED_ITEMS.add(Material.CHAIN_COMMAND_BLOCK);
         BLACKLISTED_ITEMS.add(Material.REPEATING_COMMAND_BLOCK);
