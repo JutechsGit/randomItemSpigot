@@ -5,6 +5,9 @@ import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -15,7 +18,7 @@ import java.util.Random;
 import java.util.Set;
 import java.util.UUID;
 
-public class Main extends JavaPlugin {
+public class Main extends JavaPlugin implements Listener {
 
     private static final int TICKS_PER_HOUR = 20 * 60 * 15; // 15 minutes for demo; adjust for 1 hour
     private static final Set<Material> BLACKLISTED_ITEMS = new HashSet<>();
@@ -24,6 +27,7 @@ public class Main extends JavaPlugin {
 
     @Override
     public void onEnable() {
+        getServer().getPluginManager().registerEvents( new EventListener(), this);
         dataManager = new PlayerDataManager();
         setupBlacklistedItems();
 
@@ -124,6 +128,15 @@ public class Main extends JavaPlugin {
             }
         }
         return null; // No valid item found after attempts
+    }
+    public class EventListener implements Listener {
+        @EventHandler
+        public void onBlockPlace(BlockPlaceEvent event) {
+            if (BLACKLISTED_ITEMS.contains(event.getBlock().getType())) {
+                event.setCancelled(true);
+                event.getPlayer().sendMessage(ChatColor.DARK_RED + "You are not allowed to place " + ChatColor.RED + event.getBlock().getType() + ChatColor.DARK_RED + "!");
+            }
+        }
     }
 }
 
