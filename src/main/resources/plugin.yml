@@ -6,3 +6,7 @@ commands:
   redeem:
     description: Redeems a voucher for a random item.
     usage: /redeem
+permissions:
+  cantplaceblacklisted.bypass:
+    description: Allows players to bypass block placement restrictions.
+    default: false

@@ -22,6 +22,7 @@ public class Main extends JavaPlugin implements Listener {
 
     private static final int TICKS_PER_HOUR = 20 * 60 * 15; // 15 minutes for demo; adjust for 1 hour
     private static final Set<Material> BLACKLISTED_ITEMS = new HashSet<>();
+    private static final String BYPASS_PERMISSION = "cantplaceblacklisted.bypass";
     private final Random random = new Random();
     private PlayerDataManager dataManager;
 
@@ -132,6 +133,9 @@ public class Main extends JavaPlugin implements Listener {
     public class EventListener implements Listener {
         @EventHandler
         public void onBlockPlace(BlockPlaceEvent event) {
+            if (event.getPlayer().hasPermission(BYPASS_PERMISSION)) {
+                return; // Allow placement if player has the bypass permission
+            }
             if (BLACKLISTED_ITEMS.contains(event.getBlock().getType())) {
                 event.setCancelled(true);
                 event.getPlayer().sendMessage(ChatColor.DARK_RED + "You are not allowed to place " + ChatColor.RED + event.getBlock().getType() + ChatColor.DARK_RED + "!");
