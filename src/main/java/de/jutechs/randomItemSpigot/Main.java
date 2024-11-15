@@ -54,6 +54,9 @@ public class Main extends JavaPlugin {
         BLACKLISTED_ITEMS.add(Material.COMMAND_BLOCK_MINECART);
         BLACKLISTED_ITEMS.add(Material.KNOWLEDGE_BOOK);
         BLACKLISTED_ITEMS.add(Material.WRITTEN_BOOK);
+        BLACKLISTED_ITEMS.add(Material.END_PORTAL_FRAME);
+        BLACKLISTED_ITEMS.add(Material.END_PORTAL);
+        BLACKLISTED_ITEMS.add(Material.NETHER_PORTAL);
     }
 
     private void trackPlaytime(Player player) {
