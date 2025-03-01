@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/IdeaProjects.randomItemSpigot.main.iml" filepath="$PROJECT_DIR$/.idea/modules/IdeaProjects.randomItemSpigot.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/de.jutechs.randomItemSpigot.main.iml" filepath="$PROJECT_DIR$/.idea/modules/de.jutechs.randomItemSpigot.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/randomItemSpigot.main.iml" filepath="$PROJECT_DIR$/.idea/modules/randomItemSpigot.main.iml" />
     </modules>
